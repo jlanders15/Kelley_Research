@@ -19,7 +19,7 @@ Banos, Bonita, Esperanza, Gloria, Ixta, Lluvia, Pso, Rosita, Vg, Vs
 	vg_combined.vcf.gz
 	vs_combined.vcf.gz
 
-### Trim VCF Files
+## Trim VCF Files
 Trimming the vcf files to only include mitochondrial DNA using VCF Tools
 
 
