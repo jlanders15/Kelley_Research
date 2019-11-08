@@ -9,14 +9,23 @@ Banos, Bonita, Esperanza, Gloria, Ixta, Lluvia, Pso, Rosita, Vg, Vs
 /data/kelley/projects/pmex/capture/anthony_analysis/population_vcf_files/
 
 banos_combined.vcf.gz
+
 bonita_combined.vcf.gz
+
 esperanza_combined.vcf.gz
+
 gloria_combined.vcf.gz
+
 ixta_combined.vcf.gz
+
 lluvia_combined.vcf.gz
+
 pso_combined.vcf.gz
+
 ROS rosita_combined.vcf.gz
+
 vg_combined.vcf.gz
+
 vs_combined.vcf.gz
 
 
