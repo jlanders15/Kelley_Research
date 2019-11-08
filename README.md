@@ -19,8 +19,7 @@ Banos, Bonita, Esperanza, Gloria, Ixta, Lluvia, Pso, Rosita, Vg, Vs
 	vg_combined.vcf.gz
 	vs_combined.vcf.gz
 
-## Trim VCF Files
-### Trim VCF Files
+# Trim VCF Files
 Trimming the vcf files to only include mitochondrial DNA using VCF Tools
 
 
@@ -49,7 +48,7 @@ Trimming the vcf files to only include mitochondrial DNA using VCF Tools
 	vcftools --gzvcf $file_name --chr KC992998.1 --out ../filtered_vcff/onlyMito_popVCF/$sample_name.popVCF.onlyMito.output
 
 
-Script reads off of the following text file:
+### Script reads off of the following text file:
 
 /anthony_analysis/vcf_scripts_jl/onlyMito/pop.vcf.datasheet.txt/
 
