@@ -63,7 +63,58 @@ Trimming the vcf files to only include mitochondrial DNA using VCF Tools
 	VG vg_combined.vcf.gz 
 	VS vs_combined.vcf.gz 
 
-### Filtered VCF files output into /filtered_vcff/onlyMito_popVCF/
+### Filtered VCF files output into:
+
+/filtered_vcff/onlyMito_popVCF/
+
+BEN.popVCF.onlyMito.output.recode.vcf
+BON.popVCF.onlyMito.output.recode.vcf
+ESP.popVCF.onlyMito.output.recode.vcf
+GLO.popVCF.onlyMito.output.recode.vcf
+IXT.popVCF.onlyMito.output.recode.vcf
+LUV.popVCF.onlyMito.output.recode.vcf
+PSO.popVCF.onlyMito.output.recode.vcf
+ROS.popVCF.onlyMito.output.recode.vcf
+VG.popVCF.onlyMito.output.recode.vcf
+VS.popVCF.onlyMito.output.recode.vcf
+
+# BAMtools Histogram
+
+I took the filtered VCF files and ran a BAMtools script on them with a mitochondial capture regions bed file to output a histogram text file based on the coverage. 
+
+	#!/bin/bash
+	#SBATCH --partition=kamiak
+	#SBATCH --job-name=jake.bedtools.BAN.test               ### job name
+	#SBATCH --output=allPopulations.onlyMito.hist.jake.1_%A_%a.out
+	#SBATCH --error=allPopulations.onlyMito.hist.jake.1_%A_%a.err
+	#SBATCH --mail-type=ALL
+	#SBATCH --mail-user=jake.landers@wsu.edu        ### email address for notifications
+	#SBATCH --time=7-00:00:00
+	#SBATCH --nodes=1
+	#SBATCH --ntasks-per-node=1
+	#SBATCH --ntasks=1
+	#SBATCH --cpus-per-task=1
+	#SBATCH --mem=26000
+	#SBATCH --array=1-10:1  ### lines that the array will use
+
+	sample_name=$(sed -n ''$SLURM_ARRAY_TASK_ID'p' allPopulations.onlyMito.files.txt | awk '{print$1}')
+	file_name=$(sed -n ''$SLURM_ARRAY_TASK_ID'p' allPopulations.onlyMito.files.txt | awk '{print$2}')
+
+	cd /data/kelley/projects/pmex/capture/anthony_analysis/filtered_vcff/onlyMito_popVCF/
+	bedtools coverage -hist -a ../../bedtools_scripts/mitoCaptureRegions.bed -b $file_name > ../../bedtools_output/$sample_name.allPopulations.onlyMito.bedtools.hist.jake.txt
+
+### Output
+
+BAN.allPopulations.onlyMito.bedtools.hist.jake.txt
+BON.allPopulations.onlyMito.bedtools.hist.jake.txt
+ESP.allPopulations.onlyMito.bedtools.hist.jake.txt
+GLO.allPopulations.onlyMito.bedtools.hist.jake.txt
+IXT.allPopulations.onlyMito.bedtools.hist.jake.txt
+LUV.allPopulations.onlyMito.bedtools.hist.jake.txt
+PSO.allPopulations.onlyMito.bedtools.hist.jake.txt
+ROS.allPopulations.onlyMito.bedtools.hist.jake.txt
+VG.allPopulations.onlyMito.bedtools.hist.jake.txt
+VS.allPopulations.onlyMito.bedtools.hist.jake.txt
 
 
 
