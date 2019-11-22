@@ -63,6 +63,8 @@ Trimming the vcf files to only include mitochondrial DNA using VCF Tools
 	VG vg_combined.vcf.gz 
 	VS vs_combined.vcf.gz 
 
+### Filtered VCF files output into /filtered_vcff/onlyMito_popVCF/
+
 
 
 
