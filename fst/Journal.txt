@@ -1,0 +1,37 @@
+### FST Filtering Journal
+
+
+# This document shows the work process for the fst filtering / comparing done for the 10 fish populations
+
+# The fish populations have sulfidic and non-sulfidic conterparts which are:
+
+# esperanza vs ixta
+# pso vs bonita
+# lluvia vs vg
+# gloria vs vs 
+# banos vs rosita
+
+# First, the raw population vcf files were combined using bedTools
+
+###
+
+file1="file_name1.vcf.gz"
+file2="file_name2.vcf.gz"
+
+bcftools merge $file1 $file2 --output ../vcf_output/02.23.20/file1.file2.vcf
+
+###
+
+
+# The output files were gzipped to save space
+
+# Text files were created with all of the names of the individuals for each population, which are provied in this repository
+
+# Using vcfTools, a Weir and Cockerham fst estimate comparing the pairs of complemetary populations
+
+###
+
+vcftools --gzvcf mergefst --weir-fst-pop textFile1 --weir-fst-pop textFile2 --out fst/jake.pop1.pop2.fst
+
+
+# files were large, ~20gb. May need to filter the vcf before doing fst, or explore fst filtering options
